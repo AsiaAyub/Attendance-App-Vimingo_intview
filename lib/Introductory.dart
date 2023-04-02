@@ -29,8 +29,7 @@ class IntroductionPage extends StatelessWidget {
                     bodyTextStyle: TextStyle(
                   fontSize: 16,
                 )),
-                image: Image.network(
-                    'https://nanggulan.kulonprogokab.go.id/files/news/normal/2ab869e588a92d62b275fd9295f2dc31.jpg'),
+                image: Image.asset('assets/images/pvm1.jpg'),
                 reverse: true,
               ),
               PageViewModel(
@@ -42,8 +41,7 @@ class IntroductionPage extends StatelessWidget {
                   fontSize: 16,
                 )),
                 image: Center(
-                  child: Image.network(
-                      'https://img.freepik.com/free-vector/businessman-planning-events-deadlines-agenda_74855-6274.jpg'),
+                  child: Image.asset('assets/images/pvm2.png'),
                 ),
                 reverse: true,
               ),
@@ -56,8 +54,7 @@ class IntroductionPage extends StatelessWidget {
                   fontSize: 16,
                 )),
                 image: Center(
-                  child: Image.network(
-                      'https://img.freepik.com/premium-vector/event-planner-template-hand-drawn-cartoon-illustration-with-planning-schedule-calendar-concept_2175-7747.jpg'),
+                  child: Image.asset('assets/images/pvm3.png'),
                 ),
                 reverse: true,
               ),
@@ -70,9 +67,7 @@ class IntroductionPage extends StatelessWidget {
                   fontSize: 16,
                 )),
                 image: Center(
-                  child: Image.network(
-                      'https://img.freepik.com/free-vector/businessman-planning-events-deadlines-agenda_74855-6274.jpg'),
-                ),
+                  child: Image.asset('assets/images/pvm2.png'),  ),
                 reverse: true,
               ),
             ],
@@ -87,8 +82,8 @@ class IntroductionPage extends StatelessWidget {
               );
             },
             showSkipButton: true, //the skip button to be display
-            skip: const Icon(Icons.skip_next),
-            next: const Icon(Icons.forward),
+            skip: const Icon(Icons.skip_next, color: Colors.lightGreen,),
+            next: const Icon(Icons.forward, color: Colors.lightGreen,),
             done: const Text("Done",
                 style: TextStyle(fontWeight: FontWeight.w600)),
             dotsDecorator: DotsDecorator(

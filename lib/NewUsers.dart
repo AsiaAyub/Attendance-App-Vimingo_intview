@@ -59,10 +59,10 @@ class _AddUsersScreenState extends State<AddUsersScreen> {
                       controller: nameController,
                       decoration: const InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                            borderSide:BorderSide(color: Colors.green),
+                            borderSide:BorderSide(color: Colors.lightGreen),
                           ),
                           labelText: 'name',
-                          labelStyle: TextStyle(color: Colors.green),
+                          labelStyle: TextStyle(color: Colors.lightGreen),
                           hintText: 'Enter user Name'),
                     )
                 ),
@@ -72,10 +72,10 @@ class _AddUsersScreenState extends State<AddUsersScreen> {
                       controller: phoneController,
                       decoration: const InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                            borderSide:BorderSide(color: Colors.green),
+                            borderSide:BorderSide(color: Colors.lightGreen),
                           ),
                           labelText: 'phone Number',
-                          labelStyle: TextStyle(color: Colors.green),
+                          labelStyle: TextStyle(color: Colors.lightGreen),
                           hintText: 'Enter User Phone Number'),
                     )),
                 Padding(
@@ -84,10 +84,10 @@ class _AddUsersScreenState extends State<AddUsersScreen> {
                         controller: dateController,
                         decoration: const InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                            borderSide:BorderSide(color: Colors.green),
+                            borderSide:BorderSide(color: Colors.lightGreen),
                           ),
                           labelText: 'checking Date',
-                          labelStyle: TextStyle(color: Colors.green),
+                          labelStyle: TextStyle(color: Colors.lightGreen),
 
                         ),
                         readOnly:
@@ -117,7 +117,7 @@ class _AddUsersScreenState extends State<AddUsersScreen> {
                   child: ElevatedButton(
 
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green, // Background color
+                      backgroundColor: Colors.lightGreen, // Background color
                     ),
                     onPressed: () {
                       // on press add data to the hive box to retrieve it later

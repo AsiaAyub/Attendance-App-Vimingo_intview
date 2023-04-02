@@ -30,7 +30,7 @@ void main() async {
       theme:ThemeData(
         // Define the default brightness and colors.
           brightness: Brightness.dark,
-          primaryColor: Colors.green,
+          primaryColor: Colors.lightGreen,
           fontFamily: 'Georgia',
       ) ,
       darkTheme:ThemeData.dark(),
@@ -144,6 +144,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
 
   // widget to display the default home page content when the search icon is not pressed
   Widget _defaultListView() {
+    var box2 = Hive.box('box2');
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
@@ -160,16 +161,22 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
 
                       // set the checked variable based on the button click
                       if (index == 0 && _selections[index]) {
-                        checked = 1;
+                       setState(() {
+                         box2.put("toggle", 1);
+                       });
+
                       } else if (index == 0 && !_selections[index]) {
-                        checked = 0;
+                        setState(() {
+                          box2.put("toggle", 0);
+                        });
+
                       }
                     });
                   },
-                  color: Colors.green,
-                  fillColor: Colors.lightGreen,
+                  color: Colors.lightGreen,
+                  fillColor: Colors.green,
                   borderColor: Colors.transparent,
-                  children: const <Widget>[Icon(Icons.access_time_filled, color: Colors.green,)],
+                  children: const <Widget>[Icon(Icons.access_time_filled, color: Colors.lightGreen,)],
                 ))),
 
         // column for the user list view
@@ -194,11 +201,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
                             MaterialPageRoute(
                               // all was joined into a single string to split later
                               builder: (context) => ProfilePage(
-                                text: student.name +
-                                    ',' +
-                                    student.phone_number.toString() +
-                                    ',' +
-                                    student.checking.toString(),
+                                text: '${student.name},${student.phone_number},${student.checking}',
                               ),
                             ));
                       },
@@ -212,7 +215,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
                                   children: [
                                     const Icon(
                                       Icons.person,
-                                      color: Colors.green,
+                                      color: Colors.lightGreen,
                                     ),
                                     const SizedBox(
                                       width: 15,
@@ -236,7 +239,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
                                   children: [
                                     const Icon(
                                       Icons.phone,
-                                      color: Colors.green,
+                                      color: Colors.lightGreen,
                                     ),
                                     const SizedBox(
                                       width: 15,
@@ -251,20 +254,22 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
                                   children: [
                                     const Icon(
                                       Icons.date_range,
-                                      color: Colors.green,
+                                      color: Colors.lightGreen,
                                     ),
                                     const SizedBox(
                                       width: 15,
                                     ),
 
                                     // check the toggle button state to change the date format
-                                    if (checked == 0)
+                                    //if (checked == 0)
+                                      if(box2.get('toggle')==0 || box2.get('toggle')==null)
                                       Text((DateFormat('dd MMM yyyy, h:mm a')
                                               .format(student.checking))
                                           .toString())
-                                    else if (checked == 1)
+                                    //else if (checked == 1)
+                                      else if(box2.get('toggle')==1)
                                       Text(timeago.format(student.checking))
-                                  ],
+                                                            ],
                                 ),
                               ])))),
             );
@@ -306,7 +311,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
               ? [
                   // search icon
                   IconButton(
-                      icon: const Icon(Icons.search, color: Colors.green,),
+                      icon: const Icon(Icons.search, color: Colors.lightGreen,),
                       onPressed: () {
                         setState(() {
                           _searchBoolean = true;
@@ -317,7 +322,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
               : [
                   // clear icon
                   IconButton(
-                      icon: const Icon(Icons.clear, color: Colors.green),
+                      icon: const Icon(Icons.clear, color: Colors.lightGreen),
                       onPressed: () {
                         setState(() {
                           _searchBoolean = false;
@@ -328,7 +333,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
 
         // floating button for adding new users
         floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.lightGreen,
             foregroundColor: Colors.black,
             child: const Icon(Icons.person_add_alt_1),
             onPressed: () {

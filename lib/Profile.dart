@@ -21,22 +21,21 @@ class ProfilePage extends StatelessWidget {
                 height: 250,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg'),
+                    image:AssetImage('assets/images/userProfile.png') ,
                     fit: BoxFit.cover,
                   ),
                 )),
             const SizedBox(height: 20),
             ListTile(
-              leading: const Icon(Icons.person, color: Colors.green),
+              leading: const Icon(Icons.person, color: Colors.lightGreen),
               title: Text(user[0]),
             ),
             ListTile(
-              leading: const Icon(Icons.phone, color: Colors.green),
+              leading: const Icon(Icons.phone, color: Colors.lightGreen),
               title: Text(user[1]),
             ),
             ListTile(
-              leading: const Icon(Icons.date_range, color: Colors.green),
+              leading: const Icon(Icons.date_range, color: Colors.lightGreen),
               title: Text(user[2]),
             ),
           ],
