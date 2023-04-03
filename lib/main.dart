@@ -77,10 +77,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
 
   // variable to check the opening of search page
   bool _searchBoolean = false;
-
-  // variable to check if toggle button is pressed
-  int checked = 0;
-
+  
   // users default dataset
   List<User> Students = [
     User('Chan Saw Lin', 0152131113, DateTime.parse('2020-06-30 16:10:05')),
@@ -120,12 +117,12 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
       textInputAction: TextInputAction.search,
       decoration: const InputDecoration(
         enabledBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.lightGreen)),
         focusedBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+            UnderlineInputBorder(borderSide: BorderSide(color: Colors.lightGreen)),
         hintText: 'Search',
         hintStyle: TextStyle(
-          color: Colors.white60,
+          color: Colors.white,
           fontSize: 20,
         ),
       ),
@@ -144,6 +141,7 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
 
   // widget to display the default home page content when the search icon is not pressed
   Widget _defaultListView() {
+
     var box2 = Hive.box('box2');
     return Scaffold(
       body: SingleChildScrollView(
@@ -261,12 +259,10 @@ class _HomeScreenOverlayState extends State<HomeScreenOverlay> {
                                     ),
 
                                     // check the toggle button state to change the date format
-                                    //if (checked == 0)
                                       if(box2.get('toggle')==0 || box2.get('toggle')==null)
                                       Text((DateFormat('dd MMM yyyy, h:mm a')
                                               .format(student.checking))
                                           .toString())
-                                    //else if (checked == 1)
                                       else if(box2.get('toggle')==1)
                                       Text(timeago.format(student.checking))
                                                             ],
